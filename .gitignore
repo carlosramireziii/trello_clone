@@ -13,3 +13,7 @@
 
 # Ignore Ruby gem source code
 /vendor/bundle
+
+# Ignore environment-specific config files
+/.envg
+/Procfile.dev
