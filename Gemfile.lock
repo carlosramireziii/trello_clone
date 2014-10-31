@@ -1,3 +1,8 @@
+PATH
+  remote: lib/gems/cache_persistence
+  specs:
+    cache_persistence (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -150,6 +155,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  cache_persistence!
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.0.beta2)
