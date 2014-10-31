@@ -1,7 +1,20 @@
-<h1>My Boards</h1>
+<h1 class='page-header'>My Boards</h1>
 
-<ul>
-  <% @boards.each do |board| %>
-    <li><%= board.title %></li>
-  <% end %>
-</ul>
+<div class='row'>
+  <div class='col-md-3'>
+
+    <ul class='list-unstyled'>
+
+      <% @boards.each do |board| %>
+        <li class='well'>
+          <h2><%= board.title %></h2>
+        </li>
+      <% end %>
+
+      <li class='well'>
+        <h2 class='text-muted'>Create board...</h2>
+      </li>
+    </ul>
+
+  </div>
+</div>
