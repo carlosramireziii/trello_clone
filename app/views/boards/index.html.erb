@@ -2,19 +2,6 @@
 
 <div class='row'>
   <div class='col-md-3'>
-
-    <ul class='list-unstyled'>
-
-      <% @boards.each do |board| %>
-        <li class='well'>
-          <h2><%= board.title %></h2>
-        </li>
-      <% end %>
-
-      <li class='well'>
-        <h2 class='text-muted'>Create board...</h2>
-      </li>
-    </ul>
-
+    <%= react_component('BoardBox', url: boards_url) %>
   </div>
 </div>

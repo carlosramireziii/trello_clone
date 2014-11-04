@@ -39,6 +39,12 @@ gem 'responders', '~> 2.0'
 
 gem 'bootstrap-sass', '~> 3.3.0'
 
+# Client-side JS framework
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+
+# JSON serializers
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -48,5 +54,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # JavaScript testing framework
+  gem 'qunit-rails', '~> 0.0.7'
 end
 

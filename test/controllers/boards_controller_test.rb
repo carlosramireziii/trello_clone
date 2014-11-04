@@ -26,4 +26,15 @@ class BoardsControllerTest < ActionController::TestCase
       assert_not_nil assigns(:board)
     end
   end
+
+  test 'should delete destroy via json' do
+    # TODO: replace with fixtures
+    @board = Board.create(attributes_for(:board))
+
+    assert_difference 'Board.count', -1 do
+      delete :destroy, id: @board, format: :json
+    end
+    assert_response :success
+    assert_not_nil assigns(:board)
+  end
 end

@@ -27,5 +27,9 @@ module TrelloClone
     config.generators do |g|
       g.assets false
     end
+
+    # Configure react settings
+    config.react.variant  = Rails.env.production? ? :production : :development
+    config.react.addons   = true
   end
 end
