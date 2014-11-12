@@ -47,7 +47,9 @@
 }
 
 .board {
+  @include dark-hover;
   @extend .tile;
+  @extend .clickable;
 
   .remove {
     @extend .pull-right;
@@ -67,7 +69,7 @@
 }
 
 .newBoard {
-  @extend .board;
+  @extend .tile;
 
   &.splashMode {
     @extend .clickable;
@@ -98,4 +100,18 @@
       @extend .pull-right;
     }
   }
+}
+
+// TODO: somehow these components should be consolidated
+.listList {
+  @extend .boardList;
+}
+.list {
+  @extend .board;
+}
+.newList {
+  @extend .newBoard;
+}
+.listForm {
+  @extend .boardForm;
 }

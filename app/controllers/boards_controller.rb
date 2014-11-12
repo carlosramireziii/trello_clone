@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   respond_to :html, only: [:index]
   respond_to :json
 
-  before_action :set_board, only: [:destroy]
+  before_action :set_board, only: [:show, :destroy]
 
   def index
     respond_with @boards = Board.all
@@ -10,6 +10,10 @@ class BoardsController < ApplicationController
 
   def create
     respond_with @board = Board.create(board_params)
+  end
+
+  def show
+    @lists = @board.lists
   end
 
   def destroy

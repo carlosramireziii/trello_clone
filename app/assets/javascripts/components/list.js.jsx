@@ -1,18 +1,16 @@
 /** @jsx React.DOM */
 
-var Board = React.createClass({
-  handleClick: function() {
-    var url = '/boards/' + this.props.id;
-    window.location = url;
-  },
+// How can this and the Board be consolidated?
+
+var List = React.createClass({
   handleRemoveClick: function() {
-    this.props.onBoardRemove({id: this.props.id});
+    this.props.onListRemove({id: this.props.id});
     return;
   },
 
   render: function() {
     return (
-      <li className="board" onClick={this.handleClick}>
+      <li className="list">
         <span className='remove' onClick={this.handleRemoveClick}></span>
         <h2>{this.props.children}</h2>
       </li>

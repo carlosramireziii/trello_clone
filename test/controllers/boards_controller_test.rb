@@ -2,6 +2,11 @@ require 'test_helper'
 
 class BoardsControllerTest < ActionController::TestCase
 
+  setup do
+    # TODO: replace with fixtures
+    @board = Board.create(attributes_for(:board))
+  end
+
   test 'should get index' do
     get :index
     assert_response :success
@@ -27,10 +32,15 @@ class BoardsControllerTest < ActionController::TestCase
     end
   end
 
-  test 'should delete destroy via json' do
-    # TODO: replace with fixtures
-    @board = Board.create(attributes_for(:board))
+  test 'should get show' do
+    get :show, id: @board
+    assert_response :success
+    assert_template :show
+    assert_equal @board, assigns(:board)
+    assert_not_nil assigns(:lists)
+  end
 
+  test 'should delete destroy via json' do
     assert_difference 'Board.count', -1 do
       delete :destroy, id: @board, format: :json
     end

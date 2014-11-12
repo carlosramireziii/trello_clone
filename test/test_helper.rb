@@ -14,7 +14,9 @@ class ActiveSupport::TestCase
     # TODO: replace with fixtures when created
     case klass
     when :board
-      { title: 'Test title' }
+      { title: 'Test board title' }
+    when :list
+      { title: 'Test list title' }
     end
   end
 end
