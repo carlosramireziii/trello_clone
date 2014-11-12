@@ -1,45 +1,22 @@
 /** @jsx React.DOM */
 
 var NewBoard = React.createClass({
-  getInitialState: function() {
-    return { isFormShown: false };
-  },
-
-  toggleForm: function(shouldShowForm) {
-    this.setState({ isFormShown: shouldShowForm });
-    return;
-  },
-  hideForm: function() {
-    this.toggleForm(false);
-    return;
-  },
-  showForm: function() {
-    this.toggleForm(true);
-    return;
-  },
-
-  isFormShown: function() {
-    return this.state.isFormShown;
-  },
-  isSplashShown: function() {
-    return !this.isFormShown();
-  },
-
+  mixins: [FlipboardMixin],
+  
   handleClose: function() {
-    if (this.isFormShown()) {
-      this.hideForm();
+    if (this.isBackShown()) {
+      this.flip();
     }
     return;
   },
   handleClick: function() {
-    if (this.isSplashShown()) {
-      this.showForm();
+    if (this.isFrontShown()) {
+      this.flip();
     }
-    console.debug(this.isSplashShown());
     return;
   },
   handleBoardSubmit: function(board) {
-    this.hideForm();
+    this.handleClose();
     this.props.onBoardSubmit(board);
     return;
   },
@@ -47,13 +24,13 @@ var NewBoard = React.createClass({
   render: function() {
     var classes = React.addons.classSet({
       'newBoard' : true,
-      'splashMode': this.isSplashShown()
+      'splashMode': this.isFrontShown()
     });
     
     return (
       <div className={classes} onClick={this.handleClick}>
-        <Splash show={this.isSplashShown()}>{this.props.children}</Splash>
-        <BoardForm show={this.isFormShown()} onClose={this.handleClose} onBoardSubmit={this.handleBoardSubmit}></BoardForm>
+        <Splash show={this.isFrontShown()}>{this.props.children}</Splash>
+        <BoardForm show={this.isBackShown()} onClose={this.handleClose} onBoardSubmit={this.handleBoardSubmit}></BoardForm>
       </div>
     );
   }
