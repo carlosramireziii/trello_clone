@@ -1,0 +1,117 @@
+// mixins
+
+@mixin top-flush {
+  margin-top: 0;
+}
+
+@mixin dark-hover {
+  &:hover {
+    background-color: darken(#fff, 25%);
+  }
+}
+
+// modules
+
+.footer-nav {
+  padding: 25px 0;
+  margin-bottom: 0;
+}
+
+.field {
+  @extend .form-group;
+  input[type='text'] {
+    @extend .form-control;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.tile {
+  @extend .well;
+}
+
+// .boardAdded-enter {
+//   opacity: 0.01;
+//   transition: opacity .5s ease-in;
+//   &.boardAdded-enter-active {
+//     opacity: 1;
+//   }
+// }
+
+// components
+
+.boardList {
+  @extend .list-unstyled;
+}
+
+.board {
+  @include dark-hover;
+  @extend .tile;
+  @extend .clickable;
+
+  .remove {
+    @extend .pull-right;
+    @extend .clickable;
+    @extend .glyphicon;
+    @extend .glyphicon-trash;
+    
+    // NOTE: TBS no longer has show() or hide() mixins but the docs say they do?
+    display: none !important;
+  }
+
+  &:hover {
+    .remove {
+      display: block !important;
+    }
+  }
+}
+
+.newBoard {
+  @extend .tile;
+
+  &.splashMode {
+    @extend .clickable;
+    @include dark-hover;
+    opacity: 0.7;
+  }
+}
+
+.splash {
+  @extend .text-muted;
+  @extend .text-center;
+}
+
+.boardForm {
+  input[type='submit'] {
+    @extend .btn;
+    @extend .btn-success;
+  }
+  .header {
+    @include clearfix;
+    @include top-flush;
+    @extend .page-header;
+
+    h5 { 
+      @extend .pull-left;
+    }
+    button {
+      @extend .pull-right;
+    }
+  }
+}
+
+// TODO: somehow these components should be consolidated
+.listList {
+  @extend .boardList;
+}
+.list {
+  @extend .board;
+}
+.newList {
+  @extend .newBoard;
+}
+.listForm {
+  @extend .boardForm;
+}

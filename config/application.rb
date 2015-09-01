@@ -22,5 +22,14 @@ module TrelloClone
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Configure default generator behavior
+    config.generators do |g|
+      g.assets false
+    end
+
+    # Configure react settings
+    config.react.variant  = Rails.env.production? ? :production : :development
+    config.react.addons   = true
   end
 end
