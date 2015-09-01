@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 # Use ActiveRecord-style objects persisted to the cache instead of a database
-gem 'cache_persistence', path: 'lib/gems/cache_persistence'
+gem 'cache_persistence', github: 'carlosramireziii/cache_persistence'
 
 gem 'responders', '~> 2.0'
 

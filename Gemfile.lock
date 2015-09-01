@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/carlosramireziii/cache_persistence.git
+  revision: 376966b6ad198267ea074030103c2b34ed6f7633
+  specs:
+    cache_persistence (0.0.1)
+
+GIT
   remote: git://github.com/rails-api/active_model_serializers.git
   revision: cd1829d0c0c83c61db615edb829aa9be017fad39
   branch: 0-9-stable
@@ -15,11 +21,6 @@ GIT
       execjs
       rails (>= 3.1)
       react-source (= 0.11.1)
-
-PATH
-  remote: lib/gems/cache_persistence
-  specs:
-    cache_persistence (0.0.1)
 
 GEM
   remote: https://rubygems.org/
